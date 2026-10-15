@@ -1,0 +1,10 @@
+# 大文件与生成物（勿提交）
+assignment1-basics/data/
+assignment1-basics/ckpt/
+assignment1-basics/**/*.bin
+assignment1-basics/**/*.pt
+assignment1-basics/.venv/
+**/__pycache__/
+**/.pytest_cache/
+**/node_modules/
+.DS_Store

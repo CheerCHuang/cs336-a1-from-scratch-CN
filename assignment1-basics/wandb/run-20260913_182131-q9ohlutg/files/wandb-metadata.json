@@ -1,0 +1,37 @@
+{
+  "os": "macOS-26.4.1-arm64-arm-64bit",
+  "python": "CPython 3.12.13",
+  "startedAt": "2026-09-13T10:21:31.692034Z",
+  "args": [
+    "--pos-encoding",
+    "none",
+    "--lr-max",
+    "1e-3",
+    "--run-name",
+    "nope-final-lr1e-3"
+  ],
+  "program": "/Users/cheerhuang/Desktop/LLM学习/assignment1-basics/cs336_basics/_25_train_experiment.py",
+  "codePath": "cs336_basics/_25_train_experiment.py",
+  "codePathLocal": "cs336_basics/_25_train_experiment.py",
+  "git": {
+    "remote": "https://github.com/stanford-cs336/assignment1-basics.git",
+    "commit": "a158843b20107949f1a8d7df1b05cd33b9166712"
+  },
+  "email": "c-huang25@mails.tsinghua.edu.cn",
+  "root": "/Users/cheerhuang/Desktop/LLM学习/assignment1-basics",
+  "host": "CHEERCHUANG-MC0",
+  "executable": "/Users/cheerhuang/Desktop/LLM学习/assignment1-basics/.venv/bin/python3",
+  "cpu_count": 12,
+  "cpu_count_logical": 12,
+  "disk": {
+    "/": {
+      "total": "994662584320",
+      "used": "381274796032"
+    }
+  },
+  "memory": {
+    "total": "38654705664"
+  },
+  "apple": {},
+  "writerId": "w7ung6nbpine6j0o60xkqctx8cf9togl"
+}

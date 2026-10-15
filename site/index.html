@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CS336 Assignment 1 · 学习记录</title>
+<style>
+  :root { --ink: #1c1a17; --paper: #f5f3ed; --red: #b5352c; --muted: #6f6a61; }
+  html, body { margin: 0; background: var(--paper); color: var(--ink);
+    font-family: "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", sans-serif; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 64px 28px 80px; }
+  .eyebrow { font-size: 14px; letter-spacing: .2em; color: var(--red); font-weight: 700; }
+  h1 { font-size: 44px; line-height: 1.2; margin: 14px 0 10px; font-weight: 900; }
+  .deck { font-size: 19px; line-height: 1.7; color: #45413a; margin: 0 0 36px; }
+  .rule { height: 5px; background: var(--ink); margin-bottom: 40px; }
+  .toc { display: grid; gap: 18px; }
+  a.card { display: block; text-decoration: none; color: inherit;
+    border: 1px solid var(--ink); background: #fbfaf6; padding: 22px 26px; }
+  a.card:hover { background: #efece3; }
+  .card .no { font-family: Oswald, "SF Mono", monospace; font-size: 15px; letter-spacing: .14em; color: var(--red); font-weight: 700; }
+  .card h2 { margin: 6px 0 8px; font-size: 25px; font-weight: 900; }
+  .card p { margin: 0; font-size: 16.5px; line-height: 1.6; color: var(--muted); }
+  .cards2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 640px) { .cards2 { grid-template-columns: 1fr; } h1 { font-size: 32px; } }
+  .strip { margin-top: 44px; background: var(--ink); color: #f5f3ed; padding: 26px 28px; }
+  .strip h3 { margin: 0 0 12px; font-size: 21px; }
+  .strip li { font-size: 16px; line-height: 1.7; }
+  .footer { margin-top: 40px; display: flex; justify-content: space-between; font-size: 14px; color: var(--muted); }
+  .footer b { color: var(--ink); }
+  .shot { margin-top: 44px; }
+  .shot img { width: 100%; display: block; border: 1px solid var(--ink); }
+  .shot .cap { font-size: 14px; color: var(--muted); margin-top: 8px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">STANFORD CS336 · ASSIGNMENT 1 · 学习记录</div>
+  <h1>从零手写一个 LLM</h1>
+  <p class="deck">BPE Tokenizer、Transformer、AdamW、训练循环、29 次实验——作业实现与学习笔记，整理成 4 篇可交互的网页长文。双击即读，离线可用。</p>
+  <div class="rule"></div>
+
+  <div class="toc">
+    <a class="card" href="02-tokenizer.html">
+      <span class="no">CHAPTER 2</span>
+      <h2>从字节到 token：BPE Tokenizer 的实现</h2>
+      <p>训练"按频次产生规则"，编码"按 rank 应用规则"；BPE 合并步进可视化，与 GPT-2 tiktoken 逐 token 一致。</p>
+    </a>
+    <a class="card" href="03-transformer.html">
+      <span class="no">CHAPTER 3</span>
+      <h2>从零搭一个 Transformer 语言模型</h2>
+      <p>einsum 手搭 RMSNorm / RoPE / SwiGLU / 因果注意力，FLOPs 核算器算清每一份开销。</p>
+    </a>
+    <a class="card" href="04-06-training.html">
+      <span class="no">CHAPTER 4–6</span>
+      <h2>训练：损失、优化器与训练循环</h2>
+      <p>交叉熵的数值稳定、AdamW 逐行对照 Algorithm 1、余弦调度与生成解码；含"梯度裁剪从未生效"的校注。</p>
+    </a>
+    <a class="card" href="07-experiments.html">
+      <span class="no">CHAPTER 7</span>
+      <h2>实验：基线、消融与结论</h2>
+      <p>29 次训练运行：学习率、batch size、四个架构消融；先量噪声地板，再下结论。</p>
+    </a>
+  </div>
+
+  <div class="strip">
+    <h3>实验主要结论</h3>
+    <ul>
+      <li>最优学习率约 1e-3，位于"稳定边缘"内侧一档</li>
+      <li>固定 token 预算下 batch 16–32 最好；64 以内可用"batch 翻倍、lr 翻倍"补偿</li>
+      <li>消融排序：去掉 RMSNorm（+0.22）＞ NoPE（+0.12）＞ SiLU（+0.026）＞ post-norm（+0.013）</li>
+      <li>OpenWebText 同配置 valid 4.54：每字节约 1.49 比特，TinyStories 0.58</li>
+    </ul>
+  </div>
+
+  <div class="shot">
+    <img src="promo/infocard.png" alt="CS336 A1 系列信息卡">
+    <div class="cap">系列信息卡（promo/ 目录下有 HTML 源文件，可自行修改）</div>
+  </div>
+
+  <div class="footer">
+    <span><b>assignment1-basics/</b> 目录是完整代码与 wandb 实验记录，见仓库 README</span>
+    <span>Stanford CS336 · Spring 2026</span>
+  </div>
+</div>
+</body>
+</html>
