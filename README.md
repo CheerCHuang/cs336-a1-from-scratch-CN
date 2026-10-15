@@ -2,8 +2,8 @@
 
 <img src="site/promo/hero.png" alt="CS336 Assignment 1 · Building an LLM from Scratch · 从零手写一个大语言模型" width="100%">
 
-# CS336 Assignment 1 · Building an LLM from Scratch
-### 从零手写一个大语言模型
+# [CN]CS336 Assignment 1 · Building an LLM from Scratch 
+### 从零手写一个大语言模型 中文版
 
 **BPE Tokenizer · Transformer · AdamW · Training Loop · 29 Experiments**<br>
 **BPE 分词器 · Transformer · AdamW · 训练循环 · 29 次实验**
